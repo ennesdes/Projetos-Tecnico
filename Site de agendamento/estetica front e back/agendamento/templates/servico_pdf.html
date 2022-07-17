@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+    {% block head %}
+        {% include 'head.html' %}
+    {% endblock %}
+
+    <body>
+        <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary my-3">Lista de Serviços</h1>
+        <div class="message-body">
+            {% if object_list %}
+            <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+                <thead>
+                    <tr>
+                        <th class="has-text-primary"><abbr title="Nome"></abbr>Nome</th>
+                        <th class="has-text-primary"><abbr title="Descricao">Descrição</abbr></th>
+                        <th class="has-text-primary"><abbr title="Preco">Preço</abbr></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for servico in object_list %}
+                    <tr>
+                        <td>{{ servico.nome }}</td>
+                        <td>{{ servico.descricao }}</td>
+                        <td>{{ servico.preco }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        {% else %}
+            <h2>Não existe serviços cadastrados</h2>
+        {% endif %}
+    </article>
+
+    </body>
+</html>

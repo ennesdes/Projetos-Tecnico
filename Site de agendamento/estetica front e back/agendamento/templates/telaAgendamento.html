@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary my-3">AGENDAMENTO</h1>
+    <article class="message is-primary m-1">
+        <div class="message-header">
+            <form id="formListaAgendamentos" action="" method="GET">
+                <input type="hidden" name="imprimir" id="imprimir" value="">
+                <div class="field is-grouped is-flex is-aling-items-center is-flex-wrap-wrap">
+                    <label class="label p-2 mt-2">{{ form.cliente.label }}</label>
+                    <div class="control is-expanded">
+                        {{ form.cliente }}
+                    </div>
+                    <label class="label p-2 mt-2">{{ form.funcionario.label }}</label>
+                    <div class="control is-expanded">
+                        {{ form.funcionario }}
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-link has-text-weight-bold is-rounded" onclick="geraPdf('', 'formListaAgendamentos')";>Buscar</button>
+                    </div>
+                    {% if object_list %}
+                        <div class="control">
+                            <button type="submit" class="button is-link has-text-weight-bold is-rounded" onclick="geraPdf('pdf', 'formListaAgendamentos');">Imprimir</button>
+                        </div>
+                    {% endif %}
+                </div>
+            </form>
+            <a href="{% url 'atendimento_adicionar' %}">
+                <button class="button is-primary is-light has-text-weight-bold has-text-right is-rounded">Nova Consulta</button>
+            </a>
+        </div>
+        <div class="message-body">
+            {% if object_list %}
+            <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+                <thead>
+                    <tr>
+                        <th class="has-text-primary"><abbr title="Cliente"></abbr>Cliente</th>
+                        <th class="has-text-primary"><abbr title="Funcionario">Funcionário</abbr></th>
+                        <th class="has-text-primary"><abbr title="Data">Data</abbr></th>
+                        <th class="has-text-primary"><abbr title="Hora">Hora</abbr></th>
+                        <th class="has-text-primary"><abbr title="Servico">Serviço</abbr></th>
+                        <th class="has-text-primary"><abbr title="Situacao">Situação</abbr></th>
+                        <th class="has-text-primary"><abbr title="Observacao">Observação</abbr></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for atendimento in object_list %}
+                    <tr>
+                        <td>{{ atendimento.cliente }}</td>
+                        <td>{{ atendimento.funcionario }}</td>
+                        <td>{{ atendimento.data_consulta }}</td>
+                        <td>{{ atendimento.hora_consulta }}</td>
+                        <td>{{ atendimento.servico }}</td>
+                        <td>{{ atendimento.situacao }}</td>
+                        <td>{{ atendimento.observacao }}</td>
+                        <td class="has-text-centered is-flex is-flex-wrap-nowrap is-justify-content-center">
+                            <a href="{% url 'atendimento_editar' atendimento.pk %}">
+                                <span class="icon"> <i class="fas fa-edit"></i></span>
+                            </a>
+                            <a href="{% url 'atendimento_apagar' atendimento.pk %}">
+                                <span class="icon"> <i class="fas fa-trash-alt"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+      </div>
+        {% else %}
+            <h2>Não existe consultas cadastradas</h2>
+        {% endif %}
+    </article>
+
+{% endblock %}

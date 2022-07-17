@@ -1,0 +1,16 @@
+-----Registro de empréstimo de livro da BiblioSolution-----
+Matricula: 12345
+Nome: Douglas
+Data do empréstimo: 03/07/2021
+Data da devolução: 03/08/2021
+Biblioteca: Biblioteca UFSM
+Nome do livro: Pai rico pai pobre
+
+-----Registro de empréstimo de livro da BiblioSolution-----
+Matricula: 12345
+Nome: Douglas
+Data do empréstimo: 01/07/2021
+Data da devolução: 01/08/2021
+Biblioteca: Biblioteca Politécnico
+Nome do livro: Armas da persuasão
+

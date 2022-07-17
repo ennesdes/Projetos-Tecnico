@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary mb-3">FUNCIONÁRIOS</h1>
+      <article class="message is-primary">
+            <div class="message-header">
+                <h1 class="is-size-4 has-text-weight-bold has-text-centered">CADASTRO FUNCIONÁRIO</h1>
+            </div>
+            <div class="message-body">
+                <div class="container">
+                    <form method="POST" enctype="multipart/form-data" class="box">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="field">
+                                    <label class="label is-capitalized ">{{ field.label }}: {{ field }} </label>
+                                    {% if field.help_text %}
+                                        <p class="help">{{ field.help_text }}</p>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                        <p class="help is-danger"> {{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                            <button class="button is-primary has-text-weight-bold is-rounded" type="submit">Salvar</button>
+                            <button class="button is-danger has-text-weight-bold is-rounded" type="reset">
+                                <a href="{% url 'funcionarios' %}" class="has-text-white">
+                                    Cancelar
+                                </a>
+                            </button>
+                        </form>
+                </div>
+          </div>
+        </article>
+
+{% endblock %}

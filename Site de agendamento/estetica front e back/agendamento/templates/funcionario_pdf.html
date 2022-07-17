@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+    {% block head %}
+        {% include 'head.html' %}
+    {% endblock %}
+
+    <body>
+        <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary my-3">Lista de Funcionarios</h1>
+        <div class="message-body">
+            {% if object_list %}
+            <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+                <thead>
+                    <tr>
+                        <th class="has-text-primary"><abbr title="Nome"></abbr>Nome</th>
+                        <th class="has-text-primary"><abbr title="Telefone">Telefone</abbr></th>
+                        <th class="has-text-primary"><abbr title="Email">E-mail</abbr></th>
+                        <th class="has-text-primary"><abbr title="Funcao">Função</abbr></th>
+                        <th class="has-text-primary"><abbr title="Admissao">Admissão</abbr></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for funcionario in object_list %}
+                    <tr>
+                        <td>{{ funcionario.nome }}</td>
+                        <td>{{ funcionario.telefone }}</td>
+                        <td>{{ funcionario.email }}</td>
+                        <td>{{ funcionario.funcao }}</td>
+                        <td>{{ funcionario.data_admissao }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        {% else %}
+            <h2>Não existe funcionários cadastrados</h2>
+        {% endif %}
+    </article>
+
+    </body>
+</html>

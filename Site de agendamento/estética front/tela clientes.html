@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cliente</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                         <a class="button is-primary is-light is-rounded"> Sair </a>
+                    </div>
+                 </div>
+             </div>
+        </div>
+    </nav>
+
+
+    <section class="section">
+    <div class="columns">
+        <div class="column is-3 has-background-primary has-text-centered">
+                             
+            <figure class="image">
+                <a href="#">
+                    <img class="is-rounded" src="imagens/telaprincipal.jfif">
+                </a>
+            </figure>
+            
+    
+            <nav class="menu has-text-white">
+                <h1 class="has-text-weight-bold"> Bem vindo(a) </h1>
+                <ul class="menu-list is-rounded">
+                    <li>
+                        <a href="#">
+                        <span class="icon"> <i class="fa fa-calendar-alt"></i> </span>
+                         Agendamento
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="is-active">
+                        <span class="icon"> <i class="fa fa-user-edit"></i> </span>
+                        Cliente
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                         <span class="icon"> <i class="fa fa-id-badge"></i></span>
+                        Funcionários
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                         <span class="icon"> <i class="fa fa-briefcase"></i>
+                        </span>
+                        Serviços
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                         <span class="icon"> <i class="fa fa-box-open"></i>
+                        </span>
+                        Produtos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="column is-9 is-primary is-light mx-0 px-0">
+            <section class="section pt-0 mt-0">
+                <div class="container">
+                    <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary mb-3">CLIENTES</h1>
+                  <article class="message is-primary">
+                        <div class="message-header">
+                            <form action="" method="">
+                                <div class="field">
+                                    <p class="control has-icons-left has-icons-right">
+                                        <input class="input is-rounded" type="buscar" placeholder="Buscar">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                            </form>
+                            <button class="button is-primary is-light has-text-weight-bold has-text-right is-rounded">Novo Cliente</button>
+                        </div>
+                        <div class="message-body">
+                            <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="has-text-primary"><abbr title="Foto">Foto</abbr></th>
+                                        <th class="has-text-primary"><abbr title="Nome"></abbr>Nome</th>
+                                        <th class="has-text-primary"><abbr title="Telefone">Telefone</abbr></th>
+                                        <th class="has-text-primary"><abbr title="Email">E-mail</abbr></th>
+                                        <th class="has-text-primary"><abbr title="Endereco">Endereço</abbr></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>foto</td>
+                                        <td>cliente 1</td>
+                                        <td>(55) 99999-9999)</td>
+                                        <td>nome@email.com</td>
+                                        <td>Rua X, casa 0, bairro tal</td>
+                                        <td>
+                                            <a><span class="icon"> <i class="fas fa-edit"></i></span></a>
+                                            <a><span class="icon"> <i class="fas fa-trash-alt"></i></span></a>                                      
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>foto</td>
+                                        <td>cliente 2</td>
+                                        <td>(55) 99999-9999)</td>
+                                        <td>nome@email.com</td>
+                                        <td>Rua Y, casa 1, bairro tal</td>
+                                        <td>
+                                            <a><span class="icon"> <i class="fas fa-edit"></i></span></a>
+                                            <a><span class="icon"> <i class="fas fa-trash-alt"></i></span></a>                                      
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>foto</td>
+                                        <td>cliente 3</td>
+                                        <td>(55) 99999-9999)</td>
+                                        <td>nome@email.com</td>
+                                        <td>Rua Z, casa 2, bairro tal</td>
+                                        <td>
+                                            <a><span class="icon"> <i class="fas fa-edit"></i></span></a>
+                                            <a><span class="icon"> <i class="fas fa-trash-alt"></i></span></a>                                      
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                      </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    </section>
+
+    <footer class="footer has-background-primary py-7">  
+        <div class="columns has-text-centered">
+            <hr>
+            <div class="column is-2 has-text-white has-text-left has-text-weight-bold">
+                <p class="is-uppercase is-size-4 has-text-weight-bold has-text-white">Endereço</p>
+                    <p class="has-text-white">Rua Atília Gomes do Amaral</p>
+                    <p class="has-text-white">Bairro Camobi</p>
+                    <p class="has-text-white">Santa Maria - RS</p>
+                    <p class="has-text-white">CEP: 97105-000</p>
+                    <p class="has-text-white">+55 (55) 3220-0000</p>
+            </div>
+            <div class="column is-1" style="border-right: 1px solid white;"></div>
+            <div class="column is-6 has-text-white has-text-left has-text-weight-bold">
+                <p class="is-uppercase is-size-4 has-text-weight-bold has-text-white has-text-centered">Viva lindamente com estética</p>
+            </div>
+            <div class="column is-2 has-text-centered has-text-right">
+                <span class="icon has-text-primary-light">
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp-square fa-2x mr-2"></i></a>
+                    <a href="https://www.instagram.com/douglasennes/" target="_blank"><i class="fab fa-instagram-square fa-2x mr-2"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100009193294033" target="_blank"><i class="fab fa-facebook-square fa-2x mr-2"></i></a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <section class="section has-background-primary-dark p-0 m-0">
+        <div class="container">
+            <div class="columns is-flex is-align-items-center">
+                <div class="column has-text-white has-text-weight-bold is-flex is-justify-content-center">Desenvolvido por Douglas Ennes - Politécnico/UFSM - 2021/22</div>
+            </div>
+        </div>
+    </section>
+
+
+</body>

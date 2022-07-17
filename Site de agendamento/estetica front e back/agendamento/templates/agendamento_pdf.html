@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+    {% block head %}
+        {% include 'head.html' %}
+    {% endblock %}
+
+    <body>
+        <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary my-3">Lista de Agendamentos</h1>
+        <div class="message-body">
+            {% if object_list %}
+            <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+                <thead>
+                    <tr>
+                        <th class="has-text-primary"><abbr title="Cliente"></abbr>Cliente</th>
+                        <th class="has-text-primary"><abbr title="Funcionario">Funcionário</abbr></th>
+                        <th class="has-text-primary"><abbr title="Data">Data</abbr></th>
+                        <th class="has-text-primary"><abbr title="Hora">Hora</abbr></th>
+                        <th class="has-text-primary"><abbr title="Servico">Serviço</abbr></th>
+                        <th class="has-text-primary"><abbr title="Situacao">Situação</abbr></th>
+                        <th class="has-text-primary"><abbr title="Observacao">Observação</abbr></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for atendimento in object_list %}
+                    <tr>
+                        <td>{{ atendimento.cliente }}</td>
+                        <td>{{ atendimento.funcionario }}</td>
+                        <td>{{ atendimento.data_consulta }}</td>
+                        <td>{{ atendimento.hora_consulta }}</td>
+                        <td>{{ atendimento.servico }}</td>
+                        <td>{{ atendimento.situacao }}</td>
+                        <td>{{ atendimento.observacao }}</td>
+                        <td>
+                            <a><span class="icon"> <i class="fas fa-edit"></i></span></a>
+                            <a><span class="icon"> <i class="fas fa-trash-alt"></i></span></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        {% else %}
+            <h2>Não existe agendamentos cadastrados</h2>
+        {% endif %}
+    </article>
+
+    </body>
+</html>

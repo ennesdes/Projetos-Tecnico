@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary mb-3">FUNCIONÁRIOS</h1>
+    <article class="message is-primary m-1">
+        <div class="message-header">
+            <form id="formListaFuncionarios" action="" method="GET">
+                <input type="hidden" name="imprimir" id="imprimir" value="">
+                <div class="field is-grouped is-flex is-aling-items-center is-flex-wrap-wrap">
+                    <label class="label p-2 mt-2">{{ form.nome.label }}</label>
+                    <div class="control is-expanded has-icons-left">
+                        {{ form.nome }}
+                        <span class="icon is-small is-left"> <i class="fa fa-id-badge"></i> </span>
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-link has-text-weight-bold is-rounded" onclick="geraPdf('', 'formListaFuncionarios')";>Buscar</button>
+                    </div>
+                    {% if object_list %}
+                        <div class="control">
+                            <button type="submit" class="button is-link has-text-weight-bold is-rounded" onclick="geraPdf('pdf', 'formListaFuncionarios');">Imprimir</button>
+                        </div>
+                    {% endif %}
+                </div>
+            </form>
+            <a href="{% url 'funcionario_adicionar' %}">
+                    <button class="button is-primary is-light has-text-weight-bold has-text-right is-rounded">Novo Funcionário</button>
+            </a>
+        </div>
+        <div class="message-body">
+            {% if object_list %}
+            <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+                <thead>
+                    <tr>
+                        <th class="has-text-primary"><abbr title="Nome"></abbr>Nome</th>
+                        <th class="has-text-primary"><abbr title="Telefone">Telefone</abbr></th>
+                        <th class="has-text-primary"><abbr title="Email">E-mail</abbr></th>
+                        <th class="has-text-primary"><abbr title="Funcao">Função</abbr></th>
+                        <th class="has-text-primary"><abbr title="Admissao">Admissão</abbr></th>
+                        <th class="has-text-primary"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for funcionario in object_list %}
+                    <tr>
+                        <td>
+                            <a href="#" data-toggle="modal" class="modal-target" data-bulma-modal="modal{{funcionario.id}}">
+                                {{ funcionario.nome }}
+                            </a>
+                        </td>
+                        <td>{{ funcionario.telefone }}</td>
+                        <td>{{ funcionario.email }}</td>
+                        <td>{{ funcionario.funcao }}</td>
+                        <td>{{ funcionario.data_admissao }}</td>
+                        <td class="has-text-centered is-flex is-flex-wrap-nowrap is-justify-content-center">
+                            <a href="{% url 'funcionario_editar' funcionario.pk %}">
+                                <span class="icon"> <i class="fas fa-edit"></i></span>
+                            </a>
+                            <a href="{% url 'funcionario_apagar' funcionario.pk %}">
+                                <span class="icon"> <i class="fas fa-trash-alt"></i></span>
+                            </a>
+                        </td>
+                        <div class="modal" id="modal{{funcionario.id}}">
+                            <div class="modal-background"></div>
+                            <div class="modal-card">
+                                <header class="modal-card-head">
+                                    <p class="modal-card-title has-text-primary"> Funcionário: {{ funcionario.nome }}</p>
+                                    <button class="delete" aria-label="close" data-bulma-modal="close"
+                                       id="btnClose"></button>
+                                </header>
+                                <section class="modal-card-body is-flex is-justify-content-center">
+                                    <div class="content">
+                                        <p class="image is-128x128">
+                                            <img src="{{ funcionario.foto.thumb.url }}" class="img-fluid" alt=""/>
+                                        </p>
+                                    </div>
+                                </section>
+                                <footer class="modal-card-foot">
+                                    <ul>
+                                        <li>Telefone: {{ funcionario.telefone }}</li>
+                                        <li>E-mail: {{ funcionario.email }}</li>
+                                        <li>Função: {{ funcionario.funcao }}</li>
+                                        <li>Data de admissão: {{ funcionario.data_admissao }}</li>
+                                    </ul>
+                                </footer>
+                            </div>
+                        </div>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        {% else %}
+            <h2>Não existe funcionários cadastrados</h2>
+        {% endif %}
+    </article>
+
+{% endblock %}

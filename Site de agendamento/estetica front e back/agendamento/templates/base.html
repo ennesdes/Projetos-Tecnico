@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br">
+
+{% block head %}
+    {% include "head.html" %}
+{% endblock %}
+
+<body>
+
+    <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+        <div id="navbarBasicExample" class="navbar-menu">
+        </div>
+    </nav>
+
+    <div class="columns">
+        <div class="column is-3 has-background-primary has-text-centered m-0 p-3">
+
+            <figure class="image">
+                    <img class="is-rounded" src="{% static 'img/prep rosto estetic.jfif' %}">
+                </a>
+            </figure>
+
+
+            <nav class="menu has-text-white">
+                <ul class="menu-list is-rounded">
+                    <li>
+
+                        <a href="{% url 'atendimentos' %}">
+                        <span class="icon"> <i class="fa fa-calendar-alt"></i> </span>
+                         Agendamento
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clientes' %}">
+                        <span class="icon"> <i class="fa fa-user-edit"></i> </span>
+                        Clientes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'funcionarios' %}">
+                         <span class="icon"> <i class="fa fa-id-badge"></i></span>
+                        Funcionários
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'servicos' %}">
+                         <span class="icon"> <i class="fa fa-briefcase"></i>
+                        </span>
+                        Serviços
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'produtos' %}">
+                         <span class="icon"> <i class="fa fa-box-open"></i>
+                        </span>
+                        Produtos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'servicoProduto' %}">
+                         <span class="icon"> <i class="fas fa-people-carry"></i>
+                        </span>
+                        Produtos no serviço
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="column is-9 is-primary is-light m-0 px-3">
+            {% block content %} {% endblock %}
+        </div>
+
+    </div>
+
+
+
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
+
+</body>
+</html>

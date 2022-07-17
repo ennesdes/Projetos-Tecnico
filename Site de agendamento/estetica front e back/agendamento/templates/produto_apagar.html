@@ -1,0 +1,26 @@
+<{% extends 'base.html' %}
+{% block content %}
+
+    <article class="message is-primary mt-3">
+        <div class="message-header">
+            <h1 class="is-size-4 has-text-weight-bold has-text-centered">DADOS DO PRODUTO</h1>
+        </div>
+        <div class="message-body">
+            <div class="container">
+                <p class="p-2 mt-2"><strong>Nome: </strong> {{ object.nome }}</p>
+                <p class="p-2 mt-2"><strong>Preço: </strong> {{ object.preco }}</p>
+                <p class="p-2 mt-2"><strong>Fornecedor: </strong> {{ object.fornecedor }}</p>
+                <p class="p-2 mt-2"><strong>Quantidade: </strong> {{ object.quantidade }}</p>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p> Confirma exclusão do produto {{ object }}?</p>
+                    <button class="button is-link is-danger has-text-weight-bold is-rounded" type="submit">Apagar</button>
+                        <button class="button has-text-primary is-rounded" type="reset">
+                        <a href="{% url 'produtos' %}"> Cancelar </a>
+                        </button>
+                </form>
+            </div>
+      </div>
+    </article>
+
+{% endblock %}

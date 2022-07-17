@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+    {% block head %}
+        {% include 'head.html' %}
+    {% endblock %}
+
+    <body>
+        <h1 class="is-size-3 has-text-weight-bold has-text-centered has-text-primary my-3">Lista de Clientes</h1>
+        <div class="message-body">
+            {% if object_list %}
+            <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+                <thead>
+                    <tr>
+                        <th class="has-text-primary"><abbr title="Nome"></abbr>Nome</th>
+                        <th class="has-text-primary"><abbr title="Telefone">Telefone</abbr></th>
+                        <th class="has-text-primary"><abbr title="Email">E-mail</abbr></th>
+                        <th class="has-text-primary"><abbr title="Endereco">Endereço</abbr></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for cliente in object_list %}
+                    <tr>
+                        <td>{{ cliente.nome }}</td>
+                        <td>{{ cliente.telefone }}</td>
+                        <td>{{ cliente.email }}</td>
+                        <td>{{ cliente.endereco }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        {% else %}
+            <h2>Não existe clientes cadastrados</h2>
+        {% endif %}
+    </article>
+
+    </body>
+</html>
